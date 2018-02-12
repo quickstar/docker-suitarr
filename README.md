@@ -4,7 +4,7 @@
 [![Docker Stars](https://img.shields.io/docker/stars/hotio/suitarr.svg?style=flat-square)](https://hub.docker.com/r/hotio/suitarr)
 [![Maintenance](https://img.shields.io/maintenance/yes/2018.svg?style=flat-square)](https://github.com/hotio/docker-suitarr)
 
-Donations: [xrb_3e4t96mw66ny1hupoo3c47xgqqy13q7htdyk7x7gf7nrbj635sx8hf5awe3c](https://raiblocks.net/account/index.php?acc=xrb_3e4t96mw66ny1hupoo3c47xgqqy13q7htdyk7x7gf7nrbj635sx8hf5awe3c)
+Donations: [xrb_3b9m97k5pgy5141nipaodi1gemxrth7r84e3zeqrp1kocrp45awja4y8rfzu](https://www.nanode.co/account/xrb_3b9m97k5pgy5141nipaodi1gemxrth7r84e3zeqrp1kocrp45awja4y8rfzu)
 
 ```
     _________      __  __
