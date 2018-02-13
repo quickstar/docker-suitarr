@@ -15,6 +15,10 @@ if [[ $APP == "radarr" ]]; then
                         filename=$(curl -s https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts | jq -r '.[].fileName' | grep -o ".*Radarr.*.linux.tar.gz")
                         url=https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts/${filename}
                         ;;
+            metis)      jobid=$(curl -s https://ci.appveyor.com/api/projects/galli-leo/radarr-usby1/branch/feature/metis | jq -r '.build.jobs[0].jobId')
+                        filename=$(curl -s https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts | jq -r '.[].fileName' | grep -o ".*Radarr.*.linux.tar.gz")
+                        url=https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts/${filename}
+                        ;;
             *)          jobid=$(curl -s https://ci.appveyor.com/api/projects/galli-leo/radarr-usby1/build/${VERSION} | jq -r '.build.jobs[0].jobId')
                         filename=$(curl -s https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts | jq -r '.[].fileName' | grep -o ".*Radarr.*.linux.tar.gz")
                         url=https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts/${filename}
