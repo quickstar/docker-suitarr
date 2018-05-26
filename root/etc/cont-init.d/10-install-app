@@ -87,22 +87,6 @@ if [[ $APP == "jackett" ]]; then
     fi
 fi
 
-if [[ $APP == "nzbhydra" ]]; then
-    if [[ $VERSION == /* ]]; then
-        tar xzf $VERSION -C /app --strip-components=1
-    else
-        case $VERSION in
-            stable)     url=$(curl -s https://api.github.com/repos/theotherp/nzbhydra/releases/latest | jq -r .tarball_url)
-                        ;;
-            unstable)   url=https://github.com/theotherp/nzbhydra/archive/master.tar.gz
-                        ;;
-            *)          url=https://github.com/theotherp/nzbhydra/archive/$VERSION.tar.gz
-                        ;;
-        esac
-        curl -s --fail -o /tmp/app.tar.gz -L $url && tar xzf /tmp/app.tar.gz -C /app --strip-components=1 && rm /tmp/app.tar.gz
-    fi
-fi
-
 if [[ $APP == "nzbhydra2" ]]; then
     if [[ $VERSION == /* ]]; then
         unzip $VERSION -d /app

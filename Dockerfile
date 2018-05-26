@@ -25,7 +25,7 @@ RUN apt-get update && \
         mediainfo && \
 
 # install s6-overlay
-    curl -s -o - -L "https://github.com/just-containers/s6-overlay/releases/download/v1.20.0.0/s6-overlay-amd64.tar.gz" | tar xzf - -C / && \
+    curl -s -o - -L "https://github.com/just-containers/s6-overlay/releases/download/v1.21.4.0/s6-overlay-amd64.tar.gz" | tar xzf - -C / && \
 
 # make folders
     mkdir -p /app /config && \

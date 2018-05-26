@@ -17,7 +17,7 @@ Donations: [xrb_3b9m97k5pgy5141nipaodi1gemxrth7r84e3zeqrp1kocrp45awja4y8rfzu](ht
 
 ## What is Suitarr?
 
-Suitarr is one docker image that can run Radarr, Sonarr, Lidarr, Jackett, NZBHydra, NZBHydra2 and NZBGet. By using the environment variable `-e APP=......`, the supported application will be downloaded and installed when starting the container.
+Suitarr is one docker image that can run Radarr, Sonarr, Lidarr, Jackett, NZBHydra2 and NZBGet. By using the environment variable `-e APP=......`, the supported application will be downloaded and installed when starting the container.
 This requires a lot less building of the images and all you need to do if you want to update the application is restart the container.
 
 ## Starting the container
@@ -82,23 +82,6 @@ docker run --rm \
            --name jackett \
            -p 9117:9117 \
            -e APP=jackett \
-           -e PUID=1000 \
-           -e PGID=1000 \
-           -e UMASK=022 \
-           -e VERSION=stable \
-           -e BACKUP=yes \
-           -v /etc/localtime:/etc/localtime:ro \
-           -v /<local_path>/config:/config \
-           hotio/suitarr
-```
-
-#### NZBHydra
-
-```
-docker run --rm \
-           --name nzbhydra \
-           -p 5075:5075 \
-           -e APP=nzbhydra \
            -e PUID=1000 \
            -e PGID=1000 \
            -e UMASK=022 \
@@ -179,14 +162,6 @@ When given an absolute path like `/config/Radarr.develop.0.2.0.817.linux.tar.gz`
 -e VERSION=unstable
 -e VERSION=0.7.1001
 -e VERSION=/config/Jackett.Binaries.Mono.tar.gz
-```
-
-#### NZBHydra
-
-```
--e VERSION=unstable
--e VERSION=f60a628cc5d2a17677e6c9b6bb12ad41063ea4e0
--e VERSION=/config/0.2.226.tar.gz
 ```
 
 #### NZBHydra2

@@ -6,10 +6,6 @@ if [[ $APP == "radarr" ]] || [[ $APP == "sonarr" ]] || [[ $APP == "lidarr" ]] ; 
     [[ -f /config/nzbdrone.pid ]] && rm /config/nzbdrone.pid
 fi
 
-if [[ $APP == "nzbhydra" ]]; then
-    mkdir -p /config/backup && ln -s /config/backup /app/backup
-fi
-
 if [[ $APP == "nzbget" ]]; then
     [[ -f /config/nzbget.lock ]] && rm /config/nzbget.lock
 

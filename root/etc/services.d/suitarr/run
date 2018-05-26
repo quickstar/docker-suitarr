@@ -18,10 +18,6 @@ if [[ $APP == "jackett" ]]; then
     exec s6-setuidgid hotio mono --debug /app/JackettConsole.exe --NoRestart --ListenPublic $ARGS
 fi
 
-if [[ $APP == "nzbhydra" ]]; then
-    exec s6-setuidgid hotio python /app/nzbhydra.py --nobrowser --config /config/nzbhydra.cfg --database /config/nzbhydra.db --logfile /config/nzbhydra.log $ARGS
-fi
-
 if [[ $APP == "nzbhydra2" ]]; then
     exec s6-setuidgid hotio /app/nzbhydra2 --nobrowser --datafolder /config $ARGS
 fi

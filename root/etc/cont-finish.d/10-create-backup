@@ -21,10 +21,6 @@ if [[ $BACKUP == "yes" ]]; then
         tar -czf /config/backups-suitarr/jackett_backup_$(date +%Y.%m.%d_%H.%M.%S).tar.gz -C /config Jackett/ServerConfig.json Jackett/Indexers .mono
     fi
 
-    if [[ $APP == "nzbhydra" ]]; then
-        tar -czf /config/backups-suitarr/nzbhydra_backup_$(date +%Y.%m.%d_%H.%M.%S).tar.gz -C /config nzbhydra.cfg nzbhydra.db
-    fi
-
     if [[ $APP == "nzbhydra2" ]]; then
         tar -czf /config/backups-suitarr/nzbhydra2_backup_$(date +%Y.%m.%d_%H.%M.%S).tar.gz -C /config nzbhydra.yml database
     fi
