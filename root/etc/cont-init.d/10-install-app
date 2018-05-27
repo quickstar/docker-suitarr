@@ -33,10 +33,7 @@ if [[ $APP == "lidarr" ]]; then
         tar xzf $VERSION -C /app --strip-components=1
     else
         case $VERSION in
-            stable)     jobid=$(curl -s https://ci.appveyor.com/api/projects/lidarr/lidarr/branch/develop | jq -r '.build.jobs[0].jobId')
-                        #jobid=$(curl -s https://ci.appveyor.com/api/projects/lidarr/lidarr/branch/master | jq -r '.build.jobs[0].jobId')
-                        filename=$(curl -s https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts | jq -r '.[].fileName' | grep -o ".*Lidarr.*.linux.tar.gz")
-                        url=https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts/${filename}
+            stable)     url=$(curl -s https://api.github.com/repos/lidarr/lidarr/releases | jq -r .[0].assets[].browser_download_url | grep -o ".*Lidarr.*.linux.tar.gz")
                         ;;
             unstable)   jobid=$(curl -s https://ci.appveyor.com/api/projects/lidarr/lidarr/branch/develop | jq -r '.build.jobs[0].jobId')
                         filename=$(curl -s https://ci.appveyor.com/api/buildjobs/${jobid}/artifacts | jq -r '.[].fileName' | grep -o ".*Lidarr.*.linux.tar.gz")
