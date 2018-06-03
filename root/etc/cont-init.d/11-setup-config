@@ -19,4 +19,12 @@ if [[ $APP == "nzbget" ]]; then
     fi
 fi
 
+if [[ $APP == "jdownloader" ]]; then
+    [[ -f /config/uid ]] && rm /config/uid
+
+    if [[ ! -f /config/org.jdownloader.api.myjdownloader.MyJDownloaderSettings.json && $MYJDUSER && $MYJDPASS ]]; then
+        echo "{ \"email\" : \"${MYJDUSER}\", \"password\" : \"${MYJDPASS}\", \"serverhost\" : \"api.jdownloader.org\", \"devicename\" : \"JDownloader@suitarr\" }" > /config/org.jdownloader.api.myjdownloader.MyJDownloaderSettings.json
+    fi
+fi
+
 chown -R hotio:hotio /config

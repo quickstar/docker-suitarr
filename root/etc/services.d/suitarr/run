@@ -25,3 +25,9 @@ fi
 if [[ $APP == "nzbget" ]]; then
     exec s6-setuidgid hotio /app/nzbget --server --option OutputMode=log --configfile /config/nzbget.conf $ARGS
 fi
+
+if [[ $APP == "jdownloader" ]]; then
+    # idk why this is needed?
+    chown -R hotio:hotio /app
+    exec s6-setuidgid hotio java -Djava.awt.headless=true -jar /app/JDownloader.jar $ARGS
+fi

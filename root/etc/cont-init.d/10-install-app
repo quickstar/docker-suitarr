@@ -117,4 +117,22 @@ if [[ $APP == "nzbget" ]]; then
     fi
 fi
 
+if [[ $APP == "jdownloader" ]]; then
+    if [[ $VERSION == /* ]]; then
+        sh $VERSION --destdir /app
+    else
+        case $VERSION in
+            stable)     url=http://installer.jdownloader.org/JDownloader.jar
+                        ;;
+            unstable)   url=http://installer.jdownloader.org/JDownloader.jar
+                        ;;
+            *)          url=http://installer.jdownloader.org/JDownloader.jar
+                        ;;
+        esac
+        ln -s /config /app/cfg
+        curl -s --fail -o /app/JDownloader.jar -L $url && chown -R hotio:hotio /app && chmod +x /app/JDownloader.jar
+        java -jar /app/JDownloader.jar -norestart
+    fi
+fi
+
 chown -R hotio:hotio /app

@@ -17,7 +17,7 @@ Donations: [xrb_3b9m97k5pgy5141nipaodi1gemxrth7r84e3zeqrp1kocrp45awja4y8rfzu](ht
 
 ## What is Suitarr?
 
-Suitarr is one docker image that can run Radarr, Sonarr, Lidarr, Jackett, NZBHydra2 and NZBGet. By using the environment variable `-e APP=......`, the supported application will be downloaded and installed when starting the container.
+Suitarr is one docker image that can run Radarr, Sonarr, Lidarr, Jackett, NZBHydra2, JDownloader2 and NZBGet. By using the environment variable `-e APP=......`, the supported application will be downloaded and installed when starting the container.
 This requires a lot less building of the images and all you need to do if you want to update the application is restart the container.
 
 ## Starting the container
@@ -126,6 +126,26 @@ docker run --rm \
            hotio/suitarr
 ```
 
+#### JDownloader2
+
+You need to provide your https://my.jdownloader.org credentials via the environment variables `MYJDUSER` and `MYJDPASS`
+```{shell}
+docker run --rm \
+           --name jdownloader \
+           -p 5800:5800 \
+           -e APP=jdownloader \
+           -e MYJDUSER='demo@gmail.com' \
+           -e MYJDPASS='s3cr3t' \
+           -e PUID=1000 \
+           -e PGID=1000 \
+           -e UMASK=022 \
+           -e VERSION=stable \
+           -e BACKUP=yes \
+           -v /etc/localtime:/etc/localtime:ro \
+           -v /<local_path>/config:/config \
+           hotio/suitarr
+```
+
 ## Installing a different version
 
 By default the latest stable version is installed. You can however change this behaviour with the environment variable `VERSION`.
@@ -178,6 +198,15 @@ When given an absolute path like `/config/Radarr.develop.0.2.0.817.linux.tar.gz`
 -e VERSION=unstable
 -e VERSION=19.1-r2031
 -e VERSION=/config/nzbget-19.1-bin-linux.run
+```
+
+#### JDownloader2
+
+```
+Only the stable version is supported.
+You can still specify a different version but it will always fallback to the stable release.
+
+-e VERION=unstable
 ```
 
 ## Backing up the configuration

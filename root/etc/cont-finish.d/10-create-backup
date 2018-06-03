@@ -29,5 +29,9 @@ if [[ $BACKUP == "yes" ]]; then
         tar -czf /config/backups-suitarr/nzbget_backup_$(date +%Y.%m.%d_%H.%M.%S).tar.gz -C /config nzbget.conf
     fi
 
+    if [[ $APP == "jdownloader" ]]; then
+        tar --exclude='./backups-suitarr' -czf /config/backups-suitarr/jdownloader_backup_$(date +%Y.%m.%d_%H.%M.%S).tar.gz -C /config .
+    fi
+
     chown -R hotio:hotio /config/backups-suitarr
 fi

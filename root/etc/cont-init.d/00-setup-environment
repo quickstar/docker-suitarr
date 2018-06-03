@@ -19,6 +19,8 @@ PGID           | $PGID
 UMASK          | $UMASK
 VERSION        | $VERSION
 BACKUP         | $BACKUP
+MYJDUSER       | $MYJDUSER
+MYJDPASS       | $MYJDPASS
 ARGS           | $ARGS
 -----------------------------------------------
 "
@@ -34,6 +36,8 @@ PGID           | $PGID
 UMASK          | $UMASK
 VERSION        | $VERSION
 BACKUP         | $BACKUP
+MYJDUSER       | $MYJDUSER
+MYJDPASS       | $MYJDPASS
 ARGS           | $ARGS
 -----------------------------------------------
 "
