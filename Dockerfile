@@ -1,5 +1,5 @@
 FROM debian:stretch-slim
-LABEL maintainer="hotio"
+LABEL maintainer="quickstar"
 
 ARG DEBIAN_FRONTEND=noninteractive
 ENV XDG_CONFIG_HOME="/config" XDG_DATA_HOME="/config"
