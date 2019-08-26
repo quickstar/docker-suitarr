@@ -1,4 +1,4 @@
-FROM debian:stretch-slim
+FROM debian:10-slim
 LABEL maintainer="quickstar"
 
 ARG DEBIAN_FRONTEND=noninteractive
@@ -10,7 +10,7 @@ RUN apt-get update && \
     apt-get upgrade -y && \
     apt-get install -y --no-install-recommends --no-install-suggests \
         ca-certificates-mono gnupg dirmngr apt-transport-https libcurl4-openssl-dev && \
-    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && echo "deb https://download.mono-project.com/repo/debian stable-stretch main" | tee /etc/apt/sources.list.d/mono-official-stable.list && \
+    apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 3FA7E0328081BFF6A14DA29AA6A19B38D3D831EF && echo "deb https://download.mono-project.com/repo/debian stable-buster main" | tee /etc/apt/sources.list.d/mono-official-stable.list && \
 # debian:strecht-slim is missing the man directories, mono and openjdk fails during install if not present
         mkdir -p /usr/share/man/man1 && \
     apt-get update && \
